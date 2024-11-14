@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import BaseUserManager
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
@@ -9,9 +10,9 @@ class Book(models.Model):
 class CustomUser(AbstractUser):
     date_of_birth = models.DateField()
     profile_photo = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, **options)
+    objects = CustomUserManager()
     def __str__(self):
         return self.username
-from django.contrib.auth.models import BaseUserManager
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, username, password, date_of_birth=None, profile_photo=None, **extra_fields):
