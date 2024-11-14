@@ -9,4 +9,6 @@ class Book(models.Model):
 class CustomUser(AbstractUser):
     date_of_birth = models.DateField()
     profile_photo = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, **options)
+    def __str__(self):
+        return self.username
     
