@@ -28,4 +28,10 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
 
         return self.create_user(username, password, date_of_birth, profile_photo, **extra_fields)
-
+class Meta:
+    permissions = [
+        ("can_view", "Can view article"),
+        ("can_create", "Can create article"),
+        ("can_edit", "Can edit article"),
+        ("can_delete", "Can delete article"),
+    ]
