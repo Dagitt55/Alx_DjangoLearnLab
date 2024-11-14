@@ -2,7 +2,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import permission_required
 from app.models import Book
-from .form import ExampleForm
+from .forms import ExampleForm
 
 @permission_required('app.can_view', raise_exception=True)
 def book_list(request):
