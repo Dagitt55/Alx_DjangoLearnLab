@@ -19,3 +19,11 @@
 ## DELETE /api/books/delete/
 - Deletes a book.
 - Requires authentication and permission to delete the book.
+
+## API Unit Tests
+
+### Running Tests
+To run the unit tests for the `Book` API endpoints, use the following command:
+
+bash python manage.py test api
+
