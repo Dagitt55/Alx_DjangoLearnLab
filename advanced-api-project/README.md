@@ -12,10 +12,10 @@
 - Creates a new book.
 - Requires authentication.
 
-## PUT /api/books/<int:pk>/update/
+## PUT /api/books/update/
 - Updates an existing book.
 - Requires authentication and permission to edit the book.
 
-## DELETE /api/books/<int:pk>/delete/
+## DELETE /api/books/delete/
 - Deletes a book.
 - Requires authentication and permission to delete the book.
