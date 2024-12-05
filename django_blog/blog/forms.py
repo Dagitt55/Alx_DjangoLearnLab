@@ -14,7 +14,7 @@ class CustomUserCreationForm(UserCreationForm):
 
 class PostForm(forms.ModelForm):
     tags = forms.CharField(
-        widget=TagWidget(attrs={'placeholder': 'Enter tags, separated by commas...', 'class': 'tag-input'})
+        widget = TagWidget()
     )
     class Meta:
         model = Post
