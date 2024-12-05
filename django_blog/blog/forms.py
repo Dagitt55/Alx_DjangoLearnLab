@@ -13,12 +13,12 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ['username', 'email', 'password']
 
 class PostForm(forms.ModelForm):
-    tags = TagField(required=False)
-
+    tags = forms.CharField(
+        widget=TagWidget(attrs={'placeholder': 'Enter tags, separated by commas...', 'class': 'tag-input'})
+    )
     class Meta:
         model = Post
         fields = ['title', 'content', 'tags']
-
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(),
         required=False,
