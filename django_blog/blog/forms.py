@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Post, Tag
 from .models import Comment
+from taggit.forms import TagField
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -12,9 +13,11 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ['username', 'email', 'password']
 
 class PostForm(forms.ModelForm):
+    tags = TagField(required=False)
+
     class Meta:
         model = Post
-        fields = ['title', 'content', 'tags']  # Title and content fields for creating and updating posts
+        fields = ['title', 'content', 'tags']
 
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(),
