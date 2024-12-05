@@ -15,6 +15,7 @@ class CustomUserCreationForm(UserCreationForm):
 class PostForm(forms.ModelForm):
     tags = forms.CharField(
         widget = TagWidget()
+        widget = widgets.TextInput
     )
     class Meta:
         model = Post
