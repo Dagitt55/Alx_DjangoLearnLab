@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.content }}</p>
+  
+  <div class="tags">
+    {% if post.tags.all %}
+      <strong>Tags:</strong>
+      {% for tag in post.tags.all %}
+        <a href="{% url 'blog:tagged_posts' tag.name %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+    {% else %}
+      <p>No tags available.</p>
+    {% endif %}
+  </div>
+{% endblock %}
+
+<h2>{{ post.title }}</h2>
+<p>{{ post.content }}</p>
+<a href="{% url 'blog:post_update' post.pk %}">Edit</a>
+<a href="{% url 'blog:post_delete' post.pk %}">Delete</a>
+<a href="{% url 'blog:post_list' %}">Back to Posts</a>
