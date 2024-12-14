@@ -77,4 +77,4 @@ def unlike_post(request, pk):
     
     return redirect('post_detail', pk=pk)
 
-
+generics.get_object_or_404(Post, pk=pk)
